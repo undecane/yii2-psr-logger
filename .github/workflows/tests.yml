@@ -35,6 +35,9 @@ jobs:
       - name: Setup problem matchers for PHPUnit
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
+      - name: Remove
+        run: composer remove phpstan/phpstan --no-update
+
       - name: Install dependencies
         uses: ramsey/composer-install@v3
         with:
