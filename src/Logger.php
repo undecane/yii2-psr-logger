@@ -50,7 +50,7 @@ class Logger extends AbstractLogger
         }
 
         if (! isset($this->formatLevelMap[$level])) {
-            throw new \InvalidArgumentException(sprintf('Unknown logging level %s', $level));
+            throw new \InvalidArgumentException(\sprintf('Unknown logging level %s', $level));
         }
 
         $this->logger->log(
