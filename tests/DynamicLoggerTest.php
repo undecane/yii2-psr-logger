@@ -10,7 +10,7 @@ use Zing\YiiPsrLogger\DynamicLogger;
  */
 final class DynamicLoggerTest extends TestCase
 {
-    public function testLoggerUsesCurrent(): void
+    public function testLoggerUsesCurrent()
     {
         $mock = $this->getMockBuilder(YiiLogger::class)->getMock();
         $mock->expects($this->once())

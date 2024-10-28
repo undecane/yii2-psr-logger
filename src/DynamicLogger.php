@@ -22,7 +22,7 @@ class DynamicLogger extends AbstractLogger
     /**
      * Get current Yii Logger.
      */
-    private function getLogger(): Logger
+    private function getLogger()
     {
         if (! ($this->logger instanceof Logger && $this->yiiLogger instanceof YiiLogger) || \Yii::getLogger() !== $this->yiiLogger) {
             $this->yiiLogger = \Yii::getLogger();
@@ -37,7 +37,7 @@ class DynamicLogger extends AbstractLogger
      * @param \Stringable|string $message
      * @param array<mixed> $context
      */
-    public function log($level, $message, array $context = []): void
+    public function log($level, $message, array $context = [])
     {
         $this->getLogger()
             ->log($level, $message, $context);
