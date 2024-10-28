@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Zing\YiiPsrLogger;
 
 use Psr\Log\AbstractLogger;
