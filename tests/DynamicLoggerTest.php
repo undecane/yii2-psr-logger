@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 namespace Zing\YiiPsrLogger\Tests;
 
 use yii\log\Logger as YiiLogger;
