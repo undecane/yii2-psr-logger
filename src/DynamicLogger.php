@@ -10,13 +10,23 @@ use yii\log\Logger as YiiLogger;
  */
 class DynamicLogger extends AbstractLogger
 {
-    private ?Logger $logger = null;
+    /**
+     * @var string
+     */
+    private $category;
+    /**
+     * @var \Zing\YiiPsrLogger\Logger|null
+     */
+    private $logger;
 
-    private ?YiiLogger $yiiLogger = null;
+    /**
+     * @var YiiLogger|null
+     */
+    private $yiiLogger;
 
-    public function __construct(
-        private string $category = 'application'
-    ) {
+    public function __construct($category = 'application')
+    {
+        $this->category = $category;
     }
 
     /**

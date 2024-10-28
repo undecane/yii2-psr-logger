@@ -12,12 +12,19 @@ use yii\log\Logger as YiiLogger;
  */
 class Logger extends AbstractLogger
 {
-    private YiiLogger $yiiLogger;
+   /**
+     * @var string
+     */
+    private $category;
+    /**
+     * @var YiiLogger
+     */
+    private $yiiLogger;
 
     /**
      * @var array<string, int>
      */
-    private array $formatLevelMap = [
+    private $formatLevelMap = [
         LogLevel::EMERGENCY => YiiLogger::LEVEL_ERROR,
         LogLevel::ALERT => YiiLogger::LEVEL_ERROR,
         LogLevel::CRITICAL => YiiLogger::LEVEL_ERROR,
@@ -28,11 +35,10 @@ class Logger extends AbstractLogger
         LogLevel::DEBUG => YiiLogger::LEVEL_INFO,
     ];
 
-    public function __construct(
-        ?YiiLogger $yiiLogger = null,
-        private string $category = 'application'
-    ) {
-        $this->yiiLogger = $yiiLogger ?? \Yii::getLogger();
+    public function __construct(YiiLogger $yiiLogger = null, $category = 'application')
+    {
+        $this->category = $category;
+        $this->yiiLogger = isset($yiiLogger) ? $yiiLogger : \Yii::getLogger();
     }
 
     /**
