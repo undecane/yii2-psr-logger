@@ -35,6 +35,10 @@ jobs:
       - name: Setup problem matchers for PHPUnit
         run: echo "::add-matcher::${{ runner.tool_cache }}/phpunit.json"
 
+      - if: matrix.php < '7.3'
+        name: Remove
+        run: composer remove zing/coding-standard --no-update
+
       - name: Install dependencies
         uses: ramsey/composer-install@v1
         with:
