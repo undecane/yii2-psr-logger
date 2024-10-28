@@ -13,7 +13,7 @@ final class LoggerTest extends TestCase
 {
     public function testLogLevelMap()
     {
-        $mock = $this->getMockBuilder(YiiLogger::class)->getMock();
+        $mock = $this->getMockBuilder(YiiLogger::className())->getMock();
         $mock->expects($this->once())
             ->method('log')
             ->with('test []', YiiLogger::LEVEL_ERROR);
@@ -25,19 +25,19 @@ final class LoggerTest extends TestCase
 
     public function testInvalidLogLevel()
     {
-        $mock = $this->getMockBuilder(YiiLogger::class)->getMock();
+        $mock = $this->getMockBuilder(YiiLogger::className())->getMock();
         $logger = new Logger($mock);
 
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException('InvalidArgumentException');
         $logger->log('badlevel', 'test');
     }
 
     public function testNonStringLogLevel()
     {
-        $mock = $this->getMockBuilder(YiiLogger::class)->getMock();
+        $mock = $this->getMockBuilder(YiiLogger::className())->getMock();
         $logger = new Logger($mock);
 
-        $this->expectException(\InvalidArgumentException::class);
+        $this->expectException('InvalidArgumentException');
         $logger->log(15, 'test');
     }
 }
