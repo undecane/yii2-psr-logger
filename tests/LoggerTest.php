@@ -28,7 +28,11 @@ final class LoggerTest extends TestCase
         $mock = $this->getMockBuilder(YiiLogger::className())->getMock();
         $logger = new Logger($mock);
 
-        $this->expectException('InvalidArgumentException');
+        if(method_exists($this, 'expectException')){
+            $this->expectException('InvalidArgumentException');
+        }else{
+            $this->setExpectedException('InvalidArgumentException');
+        }
         $logger->log('badlevel', 'test');
     }
 
@@ -37,7 +41,11 @@ final class LoggerTest extends TestCase
         $mock = $this->getMockBuilder(YiiLogger::className())->getMock();
         $logger = new Logger($mock);
 
-        $this->expectException('InvalidArgumentException');
+        if(method_exists($this, 'expectException')){
+            $this->expectException('InvalidArgumentException');
+        }else{
+            $this->setExpectedException('InvalidArgumentException');
+        }
         $logger->log(15, 'test');
     }
 }
