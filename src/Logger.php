@@ -45,7 +45,8 @@ class Logger extends AbstractLogger
      * @param mixed $level
      * @param mixed $message
      * @param array<mixed> $context
-     * @return void
+     *
+     * @phpstan-return void
      */
     public function log($level, $message, array $context = [])
     {

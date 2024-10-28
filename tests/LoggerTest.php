@@ -12,11 +12,12 @@ use Zing\YiiPsrLogger\Logger;
 final class LoggerTest extends TestCase
 {
     /**
-     * @return void
+     * @phpstan-return void
      */
     public function testLogLevelMap()
     {
-        $mockObject = $this->getMockBuilder('yii\log\Logger')->getMock();
+        $mockObject = $this->getMockBuilder('yii\log\Logger')
+            ->getMock();
         $mockObject->expects($this->once())
             ->method('log')
             ->with('test []', YiiLogger::LEVEL_ERROR);
@@ -27,11 +28,12 @@ final class LoggerTest extends TestCase
     }
 
     /**
-     * @return void
+     * @phpstan-return void
      */
     public function testInvalidLogLevel()
     {
-        $mockObject = $this->getMockBuilder('yii\log\Logger')->getMock();
+        $mockObject = $this->getMockBuilder('yii\log\Logger')
+            ->getMock();
         $logger = new Logger($mockObject);
 
         if (method_exists($this, 'expectException')) {
@@ -44,11 +46,12 @@ final class LoggerTest extends TestCase
     }
 
     /**
-     * @return void
+     * @phpstan-return void
      */
     public function testNonStringLogLevel()
     {
-        $mockObject = $this->getMockBuilder('yii\log\Logger')->getMock();
+        $mockObject = $this->getMockBuilder('yii\log\Logger')
+            ->getMock();
         $logger = new Logger($mockObject);
 
         if (method_exists($this, 'expectException')) {
