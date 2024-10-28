@@ -26,7 +26,7 @@ class DynamicLogger extends AbstractLogger
         $this->category = $category;
     }
 
-    private function getLogger(): Logger
+    private function getLogger()
     {
         if (! ($this->logger !== null && $this->yiiLogger !== null) || \Yii::getLogger() !== $this->yiiLogger) {
             $this->yiiLogger = \Yii::getLogger();
