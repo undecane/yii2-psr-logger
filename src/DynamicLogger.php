@@ -21,11 +21,17 @@ class DynamicLogger extends AbstractLogger
      */
     private $category;
 
+    /**
+     * @param string $category
+     */
     public function __construct($category = 'application')
     {
         $this->category = $category;
     }
 
+    /**
+     * @return \Zing\YiiPsrLogger\Logger
+     */
     private function getLogger()
     {
         if (! ($this->logger !== null && $this->yiiLogger !== null) || \Yii::getLogger() !== $this->yiiLogger) {
@@ -40,6 +46,7 @@ class DynamicLogger extends AbstractLogger
      * @param string $level
      * @param \Stringable|string $message
      * @param array<mixed> $context
+     * @return void
      */
     public function log($level, $message, array $context = [])
     {

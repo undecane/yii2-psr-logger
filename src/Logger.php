@@ -32,6 +32,9 @@ class Logger extends AbstractLogger
         LogLevel::DEBUG => \yii\log\Logger::LEVEL_INFO,
     ];
 
+    /**
+     * @param string $category
+     */
     public function __construct(\yii\log\Logger $logger = null, $category = 'application')
     {
         $this->logger = isset($logger) ? $logger : \Yii::getLogger();
@@ -42,6 +45,7 @@ class Logger extends AbstractLogger
      * @param mixed $level
      * @param mixed $message
      * @param array<mixed> $context
+     * @return void
      */
     public function log($level, $message, array $context = [])
     {

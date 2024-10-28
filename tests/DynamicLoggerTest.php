@@ -10,14 +10,17 @@ use Zing\YiiPsrLogger\DynamicLogger;
  */
 final class DynamicLoggerTest extends TestCase
 {
+    /**
+     * @return void
+     */
     public function testLoggerUsesCurrent()
     {
-        $mockObject = $this->getMockBuilder(YiiLogger::className())->getMock();
+        $mockObject = $this->getMockBuilder('yii\log\Logger')->getMock();
         $mockObject->expects($this->once())
             ->method('log')
             ->with('test1 []', YiiLogger::LEVEL_INFO);
 
-        $yiiLogger2 = $this->getMockBuilder(YiiLogger::className())->getMock();
+        $yiiLogger2 = $this->getMockBuilder('yii\log\Logger')->getMock();
         $yiiLogger2->expects($this->once())
             ->method('log')
             ->with('test2 []', YiiLogger::LEVEL_INFO);
