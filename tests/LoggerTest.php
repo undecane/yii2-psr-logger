@@ -13,7 +13,7 @@ use Zing\YiiPsrLogger\Logger;
  */
 final class LoggerTest extends TestCase
 {
-    public function testLogLevelMap(): void
+    public function testLogLevelMap()
     {
         $mock = $this->getMockBuilder(YiiLogger::class)->getMock();
         $mock->expects($this->once())
