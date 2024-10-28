@@ -39,6 +39,10 @@ jobs:
         name: Remove
         run: composer remove zing/coding-standard --no-update --dev
 
+      - if: matrix.php >= '7.3'
+        name: Remove
+        run: composer require phpunit/phpunit:'^9.3.3 || ^10.0 || ^11.0' --no-update --dev
+
       - name: Install dependencies
         uses: ramsey/composer-install@v1
         with:
