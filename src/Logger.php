@@ -34,7 +34,7 @@ class Logger extends AbstractLogger
         LogLevel::DEBUG => \yii\log\Logger::LEVEL_INFO,
     ];
 
-    public function __construct(?\yii\log\Logger $logger = null, string $category = 'application')
+    public function __construct(\yii\log\Logger $logger = null, string $category = 'application')
     {
         $this->logger = $logger ?? \Yii::getLogger();
         $this->category = $category;
