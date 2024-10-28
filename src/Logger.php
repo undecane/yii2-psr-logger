@@ -45,7 +45,7 @@ class Logger extends AbstractLogger
      * @param mixed $message
      * @param array<mixed> $context
      */
-    public function log($level, $message, array $context = []): void
+    public function log($level, $message, $context = []): void
     {
         if (! \is_string($level)) {
             throw new \InvalidArgumentException('This logger only supports string levels');

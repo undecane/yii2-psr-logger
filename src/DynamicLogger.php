@@ -43,7 +43,7 @@ class DynamicLogger extends AbstractLogger
      * @param \Stringable|string $message
      * @param array<mixed> $context
      */
-    public function log($level, $message, array $context = []): void
+    public function log($level, $message, $context = []): void
     {
         $this->getLogger()
             ->log($level, $message, $context);
