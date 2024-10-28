@@ -34,7 +34,7 @@ class Logger extends AbstractLogger
 
     public function __construct(\yii\log\Logger $logger = null, $category = 'application')
     {
-        $this->logger = $logger ?? \Yii::getLogger();
+        $this->logger = isset($logger) ? $logger : \Yii::getLogger();
         $this->category = $category;
     }
 
