@@ -20,8 +20,8 @@ final class DynamicLoggerTest extends TestCase
             ->method('log')
             ->with('test1 []', YiiLogger::LEVEL_INFO);
 
-        $yiiLogger2 = $this->getMockBuilder('yii\log\Logger')->getMock();
-        $yiiLogger2->expects($this->once())
+        $mockObject2 = $this->getMockBuilder('yii\log\Logger')->getMock();
+        $mockObject2->expects($this->once())
             ->method('log')
             ->with('test2 []', YiiLogger::LEVEL_INFO);
 
@@ -30,7 +30,7 @@ final class DynamicLoggerTest extends TestCase
 
         $dynamicLogger->info('test1');
 
-        \Yii::setLogger($yiiLogger2);
+        \Yii::setLogger($mockObject2);
         $dynamicLogger->info('test2');
     }
 }
