@@ -21,7 +21,7 @@ class DynamicLogger extends AbstractLogger
      */
     private $category;
 
-    public function __construct(string $category = 'application')
+    public function __construct($category = 'application')
     {
         $this->category = $category;
     }
