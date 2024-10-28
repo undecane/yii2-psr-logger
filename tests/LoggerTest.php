@@ -25,7 +25,7 @@ final class LoggerTest extends TestCase
         $logger->log(LogLevel::CRITICAL, 'test');
     }
 
-    public function testInvalidLogLevel(): void
+    public function testInvalidLogLevel()
     {
         $mock = $this->getMockBuilder(YiiLogger::class)->getMock();
         $logger = new Logger($mock);
@@ -34,7 +34,7 @@ final class LoggerTest extends TestCase
         $logger->log('badlevel', 'test');
     }
 
-    public function testNonStringLogLevel(): void
+    public function testNonStringLogLevel()
     {
         $mock = $this->getMockBuilder(YiiLogger::class)->getMock();
         $logger = new Logger($mock);
